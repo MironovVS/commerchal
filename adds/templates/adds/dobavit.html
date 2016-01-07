@@ -1,0 +1,20 @@
+{% extends "main.html" %}
+
+{% block title %}
+    <h2>Задание №5</h2>
+{% endblock %}
+
+{% block content %}
+{% if error_msg == "True" %}
+    <h1 style="color: red">*Ошибка ввода данных</h1>
+{% endif %}
+    <form method="post">
+        <fieldset>
+            <legend>Добавить объявление</legend>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Добавить">
+        </fieldset>
+    </form>
+<a href="/adds">Вернуться к списку объявлений</a>
+{% endblock %}

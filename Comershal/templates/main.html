@@ -1,0 +1,21 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="{% static 'static/css/foundation.css' %}">
+</head>
+<body>
+
+
+{% block title %}{% endblock %}
+
+<div class="row">
+  {% block content %}{% endblock %}
+</div>
+
+
+</body>
+</html>

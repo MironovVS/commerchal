@@ -1,0 +1,44 @@
+{% extends 'main.html' %}
+
+{% block title %}
+    <h2>Задание №5</h2>
+{% endblock %}
+
+{% block content %}
+<table>
+    <tr>
+        <td>
+            <h3>Кратное описание</h3>
+        </td>
+        <td>
+            {{ Advert.Advertising_header }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h3>Дата публикации</h3>
+        </td>
+        <td>
+            {{ Advert.Advertising_date }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h3>Стоимость</h3>
+        </td>
+        <td>
+            {{ Advert.Advertising_price }}
+        </td>
+    </tr>
+    <tr>
+         <td>
+            <h3>Описание объявления</h3>
+        </td>
+        <td>
+            {{ Advert.Advertising_text }}
+    </tr>
+
+</table>
+
+<a href="/adds">Вернуться к списку объявлений</a>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'main.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    <h2>Задание №5</h2>
+{% endblock %}
+
+{% block content %}
+<h3>{{ Header }}</h3><br>
+<a href="/adds/dobavit">Добавить объявление</a><br><br>
+Отсортироать по цене:<a href="/adds/adds_sort_price_smoll">меньше-больше </a>|<a href="/adds/adds_sort_price_big"> больше-меньше</a><br><br>
+Отсортироать по дате:<a href="/adds/adds_sort_date_last">старые-новые</a>|<a href="/adds/adds_sort_date_new">новые-старые</a><br><br>
+<hr>
+
+<ul>
+    {% for adds in Advertising_list %}
+        <li><p>Что продаётся: <a href="/adds/{{ adds.id }}/">{{ adds.Advertising_header }}</a></p>
+            <p>Дата публикации:{{ adds.Advertising_date }}</p>
+            <p><img src="{% static "money.jpg" %}" width="25px" height="25px">{{ adds.Advertising_price }}руб.</p>
+        </li>
+        <hr>
+    {% endfor %}
+</ul>
+{% endblock %}<
