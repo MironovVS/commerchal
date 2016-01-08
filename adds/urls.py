@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'adds_sort_price_big/$', views.adds_sort_price_big, name='adds_sort_price_big'),
     url(r'(?P<adds_id>[0-9]+)/$', views.Advert, name='Advert'),
     url(r'dobavit/$', views.dobavit, name='dobavit'),
+    url(r'addcoment/(?P<adds_id>[0-9]+)', views.addcoment, name='addcoment'),
     url(r'adds_sort_date_last/$', views.adds_sort_date_last, name='adds_sort_date_last'),
     url(r'adds_sort_date_new/$', views.adds_sort_date_new, name='adds_sort_date_new'),
 ]

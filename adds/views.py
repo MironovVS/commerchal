@@ -1,11 +1,11 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext, loader
-from .models import Advertising
+from .models import Advertising, Comments
 from django.http import Http404
 from django.core.urlresolvers import reverse
 from django.views import generic
-from .forms import Add_addsForm
+from .forms import Add_addsForm, Commentform
 from django.core.context_processors import csrf
 from django.shortcuts import redirect
 from django.middleware.csrf import CsrfViewMiddleware
@@ -43,8 +43,11 @@ def adds_sort_price_smoll(request):
 
 
 def Advert(request, adds_id):
-    p=get_object_or_404(Advertising, pk=adds_id)
-    return render(request, 'adds/Advert.html', {'Advert': p})
+    args={}
+    args['Advert']=get_object_or_404(Advertising, pk=adds_id)
+    args['Comments']=Comments.objects.filter(comments_advertising_id=adds_id)
+    args['form']=Commentform
+    return render(request, 'adds/Advert.html', args)
 
 
 def dobavit(request):
@@ -77,3 +80,12 @@ def adds_sort_date_new(request):
              'Header': "Список объявлений"}
 
     return render(request, 'adds/index.html', context)
+
+def addcoment(request, adds_id):
+    if request.POST:
+        form=Commentform(request.POST)
+        if form.is_valid():
+            coment=form.save(commit=False)
+            coment.comments_advertising=Advertising.objects.get(id=adds_id)
+            form.save()
+    return redirect('/adds/%s' % adds_id)

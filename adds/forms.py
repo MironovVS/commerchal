@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import Advertising
+from .models import Advertising,Comments
 from django.db import models
 from django import forms
 from django.middleware.csrf import CsrfViewMiddleware
@@ -12,3 +12,7 @@ class Add_addsForm(forms.ModelForm):
         ordering = ['Advertising_price']
         fields=['Advertising_header', 'Advertising_text','Advertising_price']
 
+class Commentform(ModelForm):
+    class Meta():
+        model = Comments
+        fields=['comments_text']

@@ -17,5 +17,8 @@ class AdvertisingAdmin(admin.ModelAdmin):
 
     search_fields = ['Advertising_header']
 
+class CommentAdmin(admin.ModelAdmin):
+    fields=['comments_text', 'comments_advertising']
 
 admin.site.register(Advertising, AdvertisingAdmin)
+admin.site.register(Comments, CommentAdmin)

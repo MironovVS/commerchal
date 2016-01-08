@@ -39,6 +39,23 @@
     </tr>
 
 </table>
+<div class="large-offset-1 large-8 columns">
+<p class="">Коментарии</p>
+{% for qqq in Comments %}
+    <div>
+        <p>Комментаврий: {{ qqq.comments_text }} </p>
+        <p>Добавлен: {{ qqq.comments_date }} </p>
+    </div>
+
+    <hr>
+{% endfor %}
+    <form action="/adds/addcoment/{{ Advert.id }}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Отправить" class="button">
+    </form>
+</div>
+
 
 <a href="/adds">Вернуться к списку объявлений</a>
 {% endblock %}

@@ -14,3 +14,11 @@ class Advertising(models.Model):
     def __str__(self):
         return self.Advertising_header
 
+class Comments(models.Model):
+    class Meta():
+        db_table = "Comments"
+
+
+    comments_text=models.TextField(verbose_name="Введите комментарий")
+    comments_date=models.DateTimeField(verbose_name="Дата публикации", auto_now_add=True)
+    comments_advertising=models.ForeignKey(Advertising)
