@@ -17,6 +17,7 @@
         <li><p>Что продаётся: <a href="/adds/{{ adds.id }}/">{{ adds.Advertising_header }}</a></p>
             <p>Дата публикации:{{ adds.Advertising_date }}</p>
             <p><img src="{% static "money.jpg" %}" width="25px" height="25px">{{ adds.Advertising_price }}руб.</p>
+            <img src={{ adds.Advertising_picture }}>
         </li>
         <hr>
     {% endfor %}

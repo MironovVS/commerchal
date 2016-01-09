@@ -46,7 +46,7 @@ def Advert(request, adds_id):
     args={}
     args['Advert']=get_object_or_404(Advertising, pk=adds_id)
     args['Comments']=Comments.objects.filter(comments_advertising_id=adds_id)
-    args['form']=Commentform
+    args['form_comm']=Commentform
     return render(request, 'adds/Advert.html', args)
 
 
@@ -55,9 +55,12 @@ def dobavit(request):
     args={}
     args.update(csrf(request))
     args['form']=add_form
+
     if request.POST:
-        new_adds=Add_addsForm(request.POST)
-        if new_adds.is_valid():
+        new_adds=Add_addsForm(request.POST, request.FILES)
+
+        if new_adds.is_valid() :
+
             new_adds.save()
             return HttpResponseRedirect('/adds/')
         else:

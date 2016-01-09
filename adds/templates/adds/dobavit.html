@@ -8,13 +8,16 @@
 {% if error_msg == "True" %}
     <h1 style="color: red">*Ошибка ввода данных</h1>
 {% endif %}
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         <fieldset>
-            <legend>Добавить объявление</legend>
+            <legend>Добавить объявление:</legend>
                 {% csrf_token %}
                 {{ form.as_p }}
+            </fieldset>
+
+
                 <input type="submit" value="Добавить">
-        </fieldset>
+
     </form>
 <a href="/adds">Вернуться к списку объявлений</a>
 {% endblock %}

@@ -10,7 +10,8 @@ class AdvertisingAdmin(admin.ModelAdmin):
     fieldsets = [
         ('Кратное описание', {'fields': ['Advertising_header']}),
         ('Стоимость', {'fields': ['Advertising_price']}),
-        ('Текст объявления', {'fields': ['Advertising_text'], 'classes': ['collapse']})
+        ('Текст объявления', {'fields': ['Advertising_text'], 'classes': ['collapse']}),
+        ('Картинка', {'fields': ['Advertising_picture']})
         ]
 
 
