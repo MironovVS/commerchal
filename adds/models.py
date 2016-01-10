@@ -10,7 +10,7 @@ class Advertising(models.Model):
     Advertising_text=models.TextField(verbose_name="Описание объявления")
     Advertising_date=models.DateTimeField(verbose_name="Дата публикации", auto_now_add=True)
     Advertising_price=models.IntegerField(default=0, verbose_name="Стоимость")
-    Advertising_picture = models.ImageField(upload_to='adds/static/images', blank=True, null=True, verbose_name='Добавить картинку')
+    Advertising_picture = models.ImageField(blank=True, null=True, verbose_name=u'D:/Project/commechal/media/', help_text='150x150px')
 
 
     def __str__(self):

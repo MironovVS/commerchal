@@ -37,8 +37,14 @@
         <td>
             {{ Advert.Advertising_text }}
     </tr>
+<tr>
+    <td>
+       <img src='/media/{{ Advert.Advertising_picture }}'><br>
+    </td>
+</tr>
 
 </table>
+
 <div class="large-offset-1 large-8 columns">
 <p class="">Коментарии</p>
 {% for qqq in Comments %}
@@ -51,7 +57,7 @@
 {% endfor %}
     <form action="/adds/addcoment/{{ Advert.id }}" method="post">
         {% csrf_token %}
-        {{ form }}
+        {{ form_comm }}
         <input type="submit" value="Отправить" class="button">
     </form>
 </div>
