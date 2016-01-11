@@ -18,9 +18,32 @@
             <p>Дата публикации:{{ adds.Advertising_date }}</p>
             <p><img src="{% static "money.jpg" %}" width="25px" height="25px">{{ adds.Advertising_price }}руб.</p>
             <img src='/media/{{ adds.Advertising_picture }}' width="50px" height="50px">
-
         </li>
         <hr>
     {% endfor %}
 </ul>
+<div class="row">
+    <div class="large-3 large-offset-3 colums">
+        <ul class="pagination">
+            {% if Advertising_list.has_previous %}
+                <li class="arrow"><a href="/page/{{ Advertising_list.previous_page_number }}/">&laquo;</a></li>
+            {% else %}
+                <li class="arrow disabled"><a href="">&laquo;</a></li>
+            {% endif %}
+            {% for page in Advertising_list.paginator.page_range %}
+                {% if page == Advertising_list.number %}
+                    <li class="current"><a href="/page/{{ page }}/">{{ page }}</a></li>
+                {% else %}
+                    <li><a href="/page/{{ page }}/">{{ page }}</a></li>
+                {% endif %}
+            {% endfor %}
+            {% if Advertising_list.has_next %}
+                <li class="arrow"><a href="/page/{{ Advertising_list.next_page_number }}/">&raquo;</a></li>
+            {% else %}
+                <li class="arrow disabled"><a href="">&raquo;</a></li>
+            {% endif %}
+        </ul>
+    </div>
+
+</div>
 {% endblock %}

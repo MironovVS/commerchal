@@ -28,4 +28,5 @@ urlpatterns = [
     url(r'adds_sort_date_last/$', views.adds_sort_date_last, name='adds_sort_date_last'),
     url(r'adds_sort_date_new/$', views.adds_sort_date_new, name='adds_sort_date_new'),
     # url(r'adds/dobavit/add_picture/$', views.add_picture, name='add_picture'),
-]
+    url(r'page/([0-9]+)/$', views.adds_sort_date_new, name='adds_sort_date_new'),
+    ]

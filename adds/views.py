@@ -11,35 +11,42 @@ from django.shortcuts import redirect
 from django.middleware.csrf import CsrfViewMiddleware
 import datetime
 from django.contrib import auth
+from django.core.paginator import Paginator #разбивает по страницы при выводе
 
 # Create your views here.
 
-def Index(request):
+def Index(request, page_number=1):
 
     Advertising_list=Advertising.objects.all()
 
-    context={'Advertising_list': Advertising_list,
+    current_page=Paginator(Advertising_list, 2)
+
+    context={'Advertising_list': current_page.page(page_number),
              'Header': "Список объявлений",
              'username': auth.get_user(request).username}
 
     return render(request, 'index.html', context)
 
 
-def adds_sort_price_big(request):
+def adds_sort_price_big(request, page_number=1):
 
     Advertising_list=Advertising.objects.order_by('-Advertising_price')
 
-    context={'Advertising_list': Advertising_list,
+    current_page=Paginator(Advertising_list, 2)
+
+    context={'Advertising_list': current_page.page(page_number),
              'Header': "Список объявлений",
              'username': auth.get_user(request).username}
 
     return render(request, 'index.html', context)
 
 
-def adds_sort_price_smoll(request):
+def adds_sort_price_smoll(request, page_number=1):
     Advertising_list=Advertising.objects.all().order_by('Advertising_price')
 
-    context={'Advertising_list': Advertising_list,
+    current_page=Paginator(Advertising_list, 2)
+
+    context={'Advertising_list': current_page.page(page_number),
              'Header': "Список объявлений",
              'username': auth.get_user(request).username}
 
@@ -73,19 +80,23 @@ def dobavit(request):
     return render(request, 'dobavit.html', args)
 
 
-def adds_sort_date_last(request):
+def adds_sort_date_last(request, page_number=1):
     Advertising_list=Advertising.objects.all().order_by('Advertising_date')
 
-    context={'Advertising_list': Advertising_list,
+    current_page=Paginator(Advertising_list, 2)
+
+    context={'Advertising_list': current_page.page(page_number),
              'Header': "Список объявлений",
              'username': auth.get_user(request).username}
 
     return render(request, 'index.html', context)
 
-def adds_sort_date_new(request):
+def adds_sort_date_new(request, page_number=1):
     Advertising_list=Advertising.objects.all().order_by('-Advertising_date')
 
-    context={'Advertising_list': Advertising_list,
+    current_page=Paginator(Advertising_list, 2)
+
+    context={'Advertising_list': current_page.page(page_number),
              'Header': "Список объявлений",
              'username': auth.get_user(request).username}
 
