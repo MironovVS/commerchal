@@ -14,19 +14,21 @@
             {% if username %}
                 <li><a href="/auth/logout/">Выйти ({{ username }})</a></li>
             {% else %}
-                <li><a href="/auth/login">Войти</a></li>
+                <li><a href="/auth/login">Войти в систему</a></li>
             {% endif %}
         </ul>
     </section>
 </div>
-
-{% block title %}{% endblock %}
-
-<div class="row">
-  {% block content %}{% endblock %}
+{% if username %}
+    <div class="row">
+    {% block title %}{% endblock %}
+      {% block content %}{% endblock %}
+    </div>
+{% else %}
+    <div class="large-text-center">Сначала войдите в систему</div>
     {% block login %}{% endblock %}
-</div>
 
+{% endif %}
 
 </body>
 </html>
