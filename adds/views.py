@@ -10,6 +10,7 @@ from django.core.context_processors import csrf
 from django.shortcuts import redirect
 from django.middleware.csrf import CsrfViewMiddleware
 import datetime
+from django.contrib import auth
 
 # Create your views here.
 
@@ -18,9 +19,10 @@ def Index(request):
     Advertising_list=Advertising.objects.all()
 
     context={'Advertising_list': Advertising_list,
-             'Header': "Список объявлений",}
+             'Header': "Список объявлений",
+             'username': auth.get_user(request).username}
 
-    return render(request, 'adds/index.html', context)
+    return render(request, 'index.html', context)
 
 
 def adds_sort_price_big(request):
@@ -28,18 +30,20 @@ def adds_sort_price_big(request):
     Advertising_list=Advertising.objects.order_by('-Advertising_price')
 
     context={'Advertising_list': Advertising_list,
-             'Header': "Список объявлений",}
+             'Header': "Список объявлений",
+             'username': auth.get_user(request).username}
 
-    return render(request, 'adds/index.html', context)
+    return render(request, 'index.html', context)
 
 
 def adds_sort_price_smoll(request):
     Advertising_list=Advertising.objects.all().order_by('Advertising_price')
 
     context={'Advertising_list': Advertising_list,
-             'Header': "Список объявлений"}
+             'Header': "Список объявлений",
+             'username': auth.get_user(request).username}
 
-    return render(request, 'adds/index.html', context)
+    return render(request, 'index.html', context)
 
 
 def Advert(request, adds_id):
@@ -47,7 +51,8 @@ def Advert(request, adds_id):
     args['Advert']=get_object_or_404(Advertising, pk=adds_id)
     args['Comments']=Comments.objects.filter(comments_advertising_id=adds_id)
     args['form_comm']=Commentform
-    return render(request, 'adds/Advert.html', args)
+    args['username']=auth.get_user(request).username
+    return render(request, 'Advert.html', args)
 
 
 def dobavit(request):
@@ -55,34 +60,36 @@ def dobavit(request):
     args={}
     args.update(csrf(request))
     args['form']=add_form
-
+    args['username']=auth.get_user(request).username
     if request.POST:
         new_adds=Add_addsForm(request.POST, request.FILES)
 
         if new_adds.is_valid() :
 
             new_adds.save()
-            return HttpResponseRedirect('/adds/')
+            return HttpResponseRedirect('/')
         else:
             args['error_msg']="True"
-    return render(request, 'adds/dobavit.html', args)
+    return render(request, 'dobavit.html', args)
 
 
 def adds_sort_date_last(request):
     Advertising_list=Advertising.objects.all().order_by('Advertising_date')
 
     context={'Advertising_list': Advertising_list,
-             'Header': "Список объявлений"}
+             'Header': "Список объявлений",
+             'username': auth.get_user(request).username}
 
-    return render(request, 'adds/index.html', context)
+    return render(request, 'index.html', context)
 
 def adds_sort_date_new(request):
     Advertising_list=Advertising.objects.all().order_by('-Advertising_date')
 
     context={'Advertising_list': Advertising_list,
-             'Header': "Список объявлений"}
+             'Header': "Список объявлений",
+             'username': auth.get_user(request).username}
 
-    return render(request, 'adds/index.html', context)
+    return render(request, 'index.html', context)
 
 def addcoment(request, adds_id):
     if request.POST:
@@ -91,4 +98,4 @@ def addcoment(request, adds_id):
             coment=form.save(commit=False)
             coment.comments_advertising=Advertising.objects.get(id=adds_id)
             form.save()
-    return redirect('/adds/%s' % adds_id)
+    return redirect('/%s' % adds_id)

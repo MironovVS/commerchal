@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'adds',
+    'loginsys'
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -57,7 +58,9 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': ["D:/Project/commechal/Comershal/templates",
-                 "D:/Project/commechal/adds/templates/adds"],
+                 "D:/Project/commechal/adds/templates/adds",
+                 "D:/Project/commechal/loginsys/templates",
+                 ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -129,5 +132,5 @@ MEDIA_ROOT=os.path.join(BASE_DIR, 'media')
 
 STATICFILES_DIRS = [
     ('static','D:/Project/commechal/Comershal/static'),
-    ('static','D:/Project/commechal/media/static')
+    ('static','D:/Project/commechal/media')
 ]

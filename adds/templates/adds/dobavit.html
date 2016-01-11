@@ -1,4 +1,6 @@
 {% extends "main.html" %}
+{% load staticfiles %}
+
 
 {% block title %}
     <h2>Задание №5</h2>
@@ -6,7 +8,7 @@
 
 {% block content %}
 {% if error_msg == "True" %}
-    <h1 style="color: red">*Ошибка ввода данных</h1>
+    <div class="errors">*Ошибка ввода данных</div>
 {% endif %}
     <form method="post" enctype="multipart/form-data">
         <fieldset>
@@ -19,5 +21,5 @@
                 <input type="submit" value="Добавить">
 
     </form>
-<a href="/adds">Вернуться к списку объявлений</a>
+<a href="/">Вернуться к списку объявлений</a>
 {% endblock %}

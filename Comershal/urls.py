@@ -16,11 +16,13 @@ Including another URLconf
 """
 from django.conf.urls import url, include, patterns
 from django.contrib import admin
+#плюхи работы с изображениями
 from django.conf import settings
 from django.conf.urls.static import static
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^adds/', include('adds.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    url(r'^auth/', include('loginsys.urls')),
+    url(r'^', include('adds.urls')),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)#плюха работы с изображениями
