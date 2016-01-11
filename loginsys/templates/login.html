@@ -6,9 +6,9 @@
         <form action="/auth/login/" method="POST">
             {% csrf_token %}
             <label for="username">Имя пользователя</label>
-            <input type="text" name="username" id="username">
+            <input type="text" name="username" id="username" value="admin">
             <label for="password">Пароль</label>
-            <input type="password" name="password" id="password">
+            <input type="password" name="password" id="password" value="1234qwer">
             {% if login_error %}
                 <label class="errors">{{ login_error }}</label>
             {% endif %}
