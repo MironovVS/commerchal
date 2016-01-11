@@ -2,7 +2,7 @@
 {% load staticfiles %}
 
 {% block title %}
-    <h2>Задание №5</h2>
+    <a href="/"><h2>Задание №5</h2></a>
 {% endblock %}
 
 {% block content %}
@@ -17,7 +17,9 @@
         <li><p>Что продаётся: <a href="/{{ adds.id }}/">{{ adds.Advertising_header }}</a></p>
             <p>Дата публикации:{{ adds.Advertising_date }}</p>
             <p><img src="{% static "money.jpg" %}" width="25px" height="25px">{{ adds.Advertising_price }}руб.</p>
-            <img src='/media/{{ adds.Advertising_picture }}' width="50px" height="50px">
+            {% if adds.Advertising_picture %}
+                <img src='/media/{{ adds.Advertising_picture }}' width="50px" height="50px">
+            {% endif %}
         </li>
         <hr>
     {% endfor %}

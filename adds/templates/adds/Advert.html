@@ -1,7 +1,7 @@
 {% extends 'main.html' %}
 
 {% block title %}
-    <h2>Задание №5</h2>
+    <a href="/"><h2>Задание №5</h2></a>
 {% endblock %}
 
 {% block content %}
@@ -37,12 +37,13 @@
         <td>
             {{ Advert.Advertising_text }}
     </tr>
+{% if Advert.Advertising_picture %}
 <tr>
     <td>
        <img src='/media/{{ Advert.Advertising_picture }}'><br>
     </td>
 </tr>
-
+{% endif %}
 </table>
 
 <div class="large-offset-1 large-8 columns">
@@ -64,5 +65,5 @@
 </div>
 
 
-<a href="/">Вернуться к списку объявлений</a>
+
 {% endblock %}
