@@ -47,6 +47,7 @@
 
 <div class="large-offset-1 large-8 columns">
 <p class="">Коментарии</p>
+<hr>
 {% for qqq in Comments %}
     <div>
         <p>Комментаврий: {{ qqq.comments_text }} </p>
@@ -55,7 +56,7 @@
 
     <hr>
 {% endfor %}
-    <form action="/adds/addcoment/{{ Advert.id }}" method="post">
+    <form action="/addcoment/{{ Advert.id }}" method="post">
         {% csrf_token %}
         {{ form_comm }}
         <input type="submit" value="Отправить" class="button">
@@ -63,5 +64,5 @@
 </div>
 
 
-<a href="/adds">Вернуться к списку объявлений</a>
+<a href="/">Вернуться к списку объявлений</a>
 {% endblock %}

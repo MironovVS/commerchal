@@ -53,14 +53,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/adds/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6472663" vertical-offset="973" max-vertical-offset="2140">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1557" max-vertical-offset="2140">
               <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
               <folding>
                 <element signature="e#0#54#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Advert.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/adds/templates/adds/Advert.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.59107804" vertical-offset="662" max-vertical-offset="1460">
+              <caret line="49" column="2" selection-start-line="49" selection-start-column="2" selection-end-line="49" selection-end-column="2" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -79,7 +89,6 @@
         <option value="$PROJECT_DIR$/adds/admin.py" />
         <option value="$PROJECT_DIR$/adds/models.py" />
         <option value="dbtable:/e44ff2a0/ddc304fb-3888-4c2e-8c61-fcf47ee80748/..Advertising" />
-        <option value="$PROJECT_DIR$/adds/templates/adds/Advert.html" />
         <option value="$PROJECT_DIR$/Comershal/settings.py" />
         <option value="$PROJECT_DIR$/Comershal/urls.py" />
         <option value="$PROJECT_DIR$/Comershal/templates/main.html" />
@@ -89,6 +98,7 @@
         <option value="$PROJECT_DIR$/loginsys/views.py" />
         <option value="$PROJECT_DIR$/adds/templates/adds/dobavit.html" />
         <option value="$PROJECT_DIR$/adds/views.py" />
+        <option value="$PROJECT_DIR$/adds/templates/adds/Advert.html" />
       </list>
     </option>
   </component>
@@ -927,14 +937,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/adds/templates/adds/Advert.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="585" max-vertical-offset="1440">
-          <caret line="48" column="26" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="dbDummy://dbtable:/e44ff2a0/ddc304fb-3888-4c2e-8c61-fcf47ee80748/..Advertising">
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="120">
@@ -1033,11 +1035,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/adds/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6472663" vertical-offset="973" max-vertical-offset="2140">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1557" max-vertical-offset="2140">
           <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
           <folding>
             <element signature="e#0#54#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adds/templates/adds/Advert.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.59107804" vertical-offset="662" max-vertical-offset="1460">
+          <caret line="49" column="2" selection-start-line="49" selection-start-column="2" selection-end-line="49" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>
